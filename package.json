@@ -1,0 +1,32 @@
+{
+    "name": "websom",
+    "displayName": "websom",
+    "description": "",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.41.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "view",
+            "aliases": ["View", "view"],
+            "extensions": [".view"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "view",
+            "scopeName": "source.view",
+            "path": "./syntaxes/view.tmLanguage.json",
+            "embeddedLanguages": {
+                "meta.embedded.block.javascript": "javascript",
+                "meta.embedded.block.less": "less",
+                "meta.embedded.block.sass": "sass",
+                "meta.embedded.block.vue": "vue",
+                "meta.embedded.block.json": "json"
+            }
+        }]
+    }
+}

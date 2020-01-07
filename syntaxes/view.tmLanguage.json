@@ -1,0 +1,256 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "View",
+	"patterns": [
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#strings"
+		},
+		{
+			"include": "#blocks"
+		}
+	],
+	"repository": {
+		"blocks": {
+			"patterns": [
+				{
+					"begin": "\\b(info)\\s*(\\[(([a-zA-Z0-9.]+)\\s*(=\\s*(\"[^\"]*\")\\s*)*)*\\])?\\s*(?={)",
+					"beginCaptures": {
+						"1": {
+							"name": "keyword.control.view"
+						},
+						"2": {
+							"name": "variable.view"
+						}
+					},
+					"end": "(})",
+					"endCaptures": {
+						"1": {
+							"name": "punctuation.whitespace.embedded.trailing.html"
+						}
+					},
+					"patterns": [
+						{
+							"begin": "({)",
+							"beginCaptures": {
+								
+							},
+							"end": "(?=})",
+							"patterns": [
+								{
+									"include": "source.json"
+								}
+							]
+						}
+					]
+				},
+				{
+					"begin": "\\b(config)\\s*(\\[(([a-zA-Z0-9.]+)\\s*(=\\s*(\"[^\"]*\")\\s*)*)*\\])?\\s*(?={)",
+					"beginCaptures": {
+						"1": {
+							"name": "keyword.control.view"
+						},
+						"2": {
+							"name": "variable.view"
+						}
+					},
+					"end": "(})",
+					"endCaptures": {
+						"1": {
+							"name": "punctuation.whitespace.embedded.trailing.html"
+						}
+					},
+					"patterns": [
+						{
+							"begin": "({)",
+							"beginCaptures": {
+								
+							},
+							"end": "(?=})",
+							"patterns": [
+								{
+									"include": "source.json"
+								}
+							]
+						}
+					]
+				},
+				{
+					"begin": "\\b(template)\\s*(\\[(([a-zA-Z0-9.]+)\\s*(=\\s*(\"[^\"]*\")\\s*)*)*\\])?\\s*(?={)",
+					"beginCaptures": {
+						"1": {
+							"name": "keyword.control.view"
+						},
+						"2": {
+							"name": "variable.view"
+						}
+					},
+					"end": "(})",
+					"endCaptures": {
+						"1": {
+							"name": "punctuation.whitespace.embedded.trailing.html"
+						}
+					},
+					"patterns": [
+						{
+							"begin": "({)",
+							"beginCaptures": {
+								
+							},
+							"end": "(?=})",
+							"patterns": [
+								{
+									"include": "text.html.vue-html"
+								}
+							]
+						}
+					]
+				},
+				{
+					"begin": "\\b(script)\\s*(\\[(([a-zA-Z0-9.]+)\\s*(=\\s*(\"[^\"]*\")\\s*)*)*\\])?\\s*(?={)",
+					"beginCaptures": {
+						"1": {
+							"name": "keyword.control.view"
+						},
+						"2": {
+							"name": "variable.view"
+						}
+					},
+					"end": "(})",
+					"endCaptures": {
+						"1": {
+							"name": "punctuation.whitespace.embedded.trailing.html"
+						}
+					},
+					"patterns": [
+						{
+							"begin": "({)",
+							"beginCaptures": {
+								
+							},
+							"end": "(?=})",
+							"patterns": [
+								{
+									"include": "source.js"
+								}
+							]
+						}
+					]
+				},
+				{
+					"begin": "\\b(style)\\s*(\\[less\\])\\s*(?={)",
+					"beginCaptures": {
+						"1": {
+							"name": "keyword.control.view"
+						},
+						"2": {
+							"name": "variable.view"
+						}
+					},
+					"end": "(})",
+					"endCaptures": {
+						"1": {
+							"name": "punctuation.whitespace.embedded.trailing.html"
+						}
+					},
+					"patterns": [
+						{
+							"begin": "({)",
+							"beginCaptures": {
+								
+							},
+							"end": "(?=})",
+							"patterns": [
+								{
+									"include": "source.css.less"
+								}
+							]
+						}
+					]
+				},
+				{
+					"begin": "\\b(style)\\s*(\\[sass\\])\\s*(?={)",
+					"beginCaptures": {
+						"1": {
+							"name": "keyword.control.view"
+						},
+						"2": {
+							"name": "variable.view"
+						}
+					},
+					"end": "(})",
+					"endCaptures": {
+						"1": {
+							"name": "punctuation.whitespace.embedded.trailing.html"
+						}
+					},
+					"patterns": [
+						{
+							"begin": "({)",
+							"beginCaptures": {
+								
+							},
+							"end": "(?=})",
+							"patterns": [
+								{
+									"include": "source.css.sass"
+								}
+							]
+						}
+					]
+				},
+				{
+					"begin": "\\b(style)\\s*(\\[(([a-zA-Z0-9.]+)\\s*(=\\s*(\"[^\"]*\")\\s*)*)*\\])?\\s*(?={)",
+					"beginCaptures": {
+						"1": {
+							"name": "keyword.control.view"
+						},
+						"2": {
+							"name": "variable.view"
+						}
+					},
+					"end": "(})",
+					"endCaptures": {
+						"1": {
+							"name": "punctuation.whitespace.embedded.trailing.html"
+						}
+					},
+					"patterns": [
+						{
+							"begin": "({)",
+							"beginCaptures": {
+								
+							},
+							"end": "(?=})",
+							"patterns": [
+								{
+									"include": "source.css.less"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		"keywords": {
+			"patterns": [{
+				"name": "keyword.control.view",
+				"match": "\\b(abc)\\b"
+			}]
+		},
+		"strings": {
+			"name": "string.quoted.double.view",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.view",
+					"match": "\\\\."
+				}
+			]
+		}
+	},
+	"scopeName": "source.view"
+}
